@@ -1,0 +1,10 @@
+sudo: required
+services: 
+  - docker
+
+before_install:
+  - docker build -t premasis/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run -r CI=true premasis/docker-react npm run test
+
